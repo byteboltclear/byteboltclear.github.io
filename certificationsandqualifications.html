@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WSRN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #E5E4E2;
+            margin: 0;
+            padding: 20px;
+            height: 200vh; /* Allow for vertical scrolling */
+            overflow: auto; /* Enable scrolling */
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgb(231, 114, 25), rgba(255, 255, 0, 0.6)),
+                radial-gradient(circle at 70% 30%, rgba(0, 255, 150, 0.6), rgba(0, 0, 255, 0.6)),
+                radial-gradient(circle at 50% 50%, rgba(255, 157, 0, 0.872), rgba(0, 255, 255, 0.6)),
+                radial-gradient(circle at 20% 80%, rgba(255, 0, 150, 0.6), rgba(255, 100, 0, 0.6)),
+                radial-gradient(circle at 80% 20%, rgba(0, 100, 255, 0.6), rgba(0, 255, 100, 0.6)),
+                radial-gradient(circle at 40% 60%, rgba(200, 0, 255, 0.6), rgba(255, 255, 255, 0.6));
+            background-size: 200px 200px, 200px 200px, 200px 200px, 150px 150px, 150px 150px, 100px 100px;
+            background-repeat: repeat;
+            animation: fractalAnimation 5s infinite alternate; /* Keep animation */
+        }
+
+        @keyframes fractalAnimation {
+            0% {
+                background-size: 200px 200px, 200px 200px, 200px 200px, 150px 150px, 150px 150px, 100px 100px;
+            }
+            100% {
+                background-size: 250px 250px, 250px 250px, 250px 250px, 200px 200px, 200px 200px, 150px 150px;
+            }
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .backbutton {
+            padding: 15px 30px;
+            font-size: 18px;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+            transition: 0.5s;
+            background: #1e1e1e;
+            cursor: pointer;
+            color: greenyellow;
+            box-shadow: 0 0 10px #363636, inset 0 0 10px #363636;
+            text-decoration: none; /* Remove underline from link */
+            display: inline-block; /* Make link behave like a button */
+        }
+
+        .backbutton:hover {
+            animation: a 1s 1 linear;
+        }
+
+        @keyframes a {
+            0% {
+                transform: scale(0.7, 1.3);
+            }
+            25% {
+                transform: scale(1.3, 0.7);
+            }
+            50% {
+                transform: scale(0.7, 1.3);
+            }
+            75% {
+                transform: scale(1.3, 0.7);
+            }
+            100% {
+                transform: scale(1, 1);
+            }
+        }
+
+        .certifications {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 2px solid #39ff14;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+        .certifications h2 {
+            color: #39ff14;
+            text-align: center;
+        }
+
+        .certifications ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid greenyellow;
+            margin: 10px 0;
+            padding-left: 10px;
+            font-style: italic;
+            color: #555;
+            text-align: center;
+        }
+
+        button:hover {
+            box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 3px 3px #CECFD1;
+        }
+
+        button:active {
+            box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+        }
+
+        button:focus {
+            box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            <img src="logo.png" alt="WSRN Logo" width="200";>
+          </h1>
+        <nav>
+            <a class="backbutton" href="index.html">Back to homepage button --></a>
+        </nav>
+    </header>
+
+    <section class="certifications">
+        <h2>Certifications</h2>
+        <ul>
+            <li>Nuclear Regulatory Commission (NRC) License - Required in the U.S. to operate nuclear facilities.</li>
+            <li>ISO 9001 - Quality management systems certification.</li>
+            <li>ISO 14001 - Environmental management systems certification.</li>
+            <li>ISO 45001 - Occupational health and safety management systems certification.</li>
+            <li>ASME Nuclear Quality Assurance (NQA-1) - Standard for quality assurance in nuclear facilities.</li>
+            <li>ISO/IEC 17025 - General requirements for the competence of testing and calibration laboratories.</li>
+            <li>Nuclear Energy Agency (NEA) Membership - Participation in international nuclear safety and security discussions.</li>
+            <li>American National Standards Institute (ANSI) Certification - Compliance with various standards for safety and performance.</li>
+            <li>Quality Assurance Program (QAP) - Specific to nuclear reactor components and systems.</li>
+            <li>Nuclear Security Regulations Compliance - Adherence to physical and cybersecurity standards.</li>
+            <li>Radiation Safety Certification - Compliance with safety standards for radiation exposure.</li>
+            <li>Engineering and Manufacturing Certifications - Such as ISO/TS 16949 for automotive applications, applicable to specific components.</li>
+            <li>Fukushima Response Certification - Demonstrating compliance with enhanced safety measures post-Fukushima.</li>
+            <li>IAEA Safeguards Certification - Compliance with International Atomic Energy Agency safeguards.</li>
+        </ul>
+    </section>
+</body>
+</html>

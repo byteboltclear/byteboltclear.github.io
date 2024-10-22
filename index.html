@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WSNR</title>
+
+    <style>
+                body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+    position: relative; /* Needed for positioning the pseudo-element */
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+    overflow: hidden; /* Ensure the pseudo-element doesn't overflow */
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('bg.png'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    z-index: 0; /* Send to back */
+}
+
+h1, nav {
+    position: relative; /* Ensure text stays above the background */
+    z-index: 1; /* Bring text above the pseudo-element */
+}
+
+.uiverse {
+  --duration: 7s;
+  --easing: linear;
+  --c-color-1: rgba(57, 255, 20, 0.7); /* Neon green with transparency */
+--c-color-2: #1a23ff; /* Keep this as is */
+--c-color-3: #e21bda; /* Keep this as is */
+--c-color-4: rgba(57, 255, 20, 0.7); /* Neon green with transparency */
+--c-shadow: rgba(57, 255, 20, 0.5); /* Neon green shadow */
+--c-shadow-inset-top: rgba(57, 255, 20, 0.9); /* Neon green inset shadow */
+--c-shadow-inset-bottom: rgba(57, 255, 20, 0.8); /* Neon green inset shadow */
+--c-radial-inner: #39ff14; /* Neon green */
+--c-radial-outer: #aaff7a; /* Lighter neon green */
+--c-color: #ffffff; /* Neon green */
+
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  display: table;
+  border-radius: 24px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  color: var(--c-color);
+  background: radial-gradient(
+    circle,
+    var(--c-radial-inner),
+    var(--c-radial-outer) 80%
+  );
+  box-shadow: 0 0 14px var(--c-shadow);
+}
+
+.uiverse:before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 24px;
+  box-shadow:
+    inset 0 3px 12px var(--c-shadow-inset-top),
+    inset 0 -3px 4px var(--c-shadow-inset-bottom);
+}
+
+.uiverse .wrapper {
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  overflow: hidden;
+  border-radius: 24px;
+  min-width: 132px;
+  padding: 12px 0;
+}
+
+.uiverse .wrapper span {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+
+.uiverse:hover {
+  --duration: 1400ms;
+}
+
+.uiverse .wrapper .circle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  filter: blur(var(--blur, 8px));
+  background: var(--background, transparent);
+  transform: translate(var(--x, 0), var(--y, 0)) translateZ(0);
+  animation: var(--animation, none) var(--duration) var(--easing) infinite;
+}
+
+.uiverse .wrapper .circle.circle-1,
+.uiverse .wrapper .circle.circle-9,
+.uiverse .wrapper .circle.circle-10 {
+  --background: var(--c-color-4);
+}
+
+.uiverse .wrapper .circle.circle-3,
+.uiverse .wrapper .circle.circle-4 {
+  --background: var(--c-color-2);
+  --blur: 14px;
+}
+
+.uiverse .wrapper .circle.circle-5,
+.uiverse .wrapper .circle.circle-6 {
+  --background: var(--c-color-3);
+  --blur: 16px;
+}
+
+.uiverse .wrapper .circle.circle-2,
+.uiverse .wrapper .circle.circle-7,
+.uiverse .wrapper .circle.circle-8,
+.uiverse .wrapper .circle.circle-11,
+.uiverse .wrapper .circle.circle-12 {
+  --background: var(--c-color-1);
+  --blur: 12px;
+}
+
+.uiverse .wrapper .circle.circle-1 {
+  --x: 0;
+  --y: -40px;
+  --animation: circle-1;
+}
+
+.uiverse .wrapper .circle.circle-2 {
+  --x: 92px;
+  --y: 8px;
+  --animation: circle-2;
+}
+
+.uiverse .wrapper .circle.circle-3 {
+  --x: -12px;
+  --y: -12px;
+  --animation: circle-3;
+}
+
+.uiverse .wrapper .circle.circle-4 {
+  --x: 80px;
+  --y: -12px;
+  --animation: circle-4;
+}
+
+.uiverse .wrapper .circle.circle-5 {
+  --x: 12px;
+  --y: -4px;
+  --animation: circle-5;
+}
+
+.uiverse .wrapper .circle.circle-6 {
+  --x: 56px;
+  --y: 16px;
+  --animation: circle-6;
+}
+
+.uiverse .wrapper .circle.circle-7 {
+  --x: 8px;
+  --y: 28px;
+  --animation: circle-7;
+}
+
+.uiverse .wrapper .circle.circle-8 {
+  --x: 28px;
+  --y: -4px;
+  --animation: circle-8;
+}
+
+.uiverse .wrapper .circle.circle-9 {
+  --x: 20px;
+  --y: -12px;
+  --animation: circle-9;
+}
+
+.uiverse .wrapper .circle.circle-10 {
+  --x: 64px;
+  --y: 16px;
+  --animation: circle-10;
+}
+
+.uiverse .wrapper .circle.circle-11 {
+  --x: 4px;
+  --y: 4px;
+  --animation: circle-11;
+}
+
+.uiverse .wrapper .circle.circle-12 {
+  --blur: 14px;
+  --x: 52px;
+  --y: 4px;
+  --animation: circle-12;
+}
+
+@keyframes circle-1 {
+  33% {
+    transform: translate(0px, 16px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(12px, 64px) translateZ(0);
+  }
+}
+
+@keyframes circle-2 {
+  33% {
+    transform: translate(80px, -10px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(72px, -48px) translateZ(0);
+  }
+}
+
+@keyframes circle-3 {
+  33% {
+    transform: translate(20px, 12px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(12px, 4px) translateZ(0);
+  }
+}
+
+@keyframes circle-4 {
+  33% {
+    transform: translate(76px, -12px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(112px, -8px) translateZ(0);
+  }
+}
+
+@keyframes circle-5 {
+  33% {
+    transform: translate(84px, 28px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(40px, -32px) translateZ(0);
+  }
+}
+
+@keyframes circle-6 {
+  33% {
+    transform: translate(28px, -16px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(76px, -56px) translateZ(0);
+  }
+}
+
+@keyframes circle-7 {
+  33% {
+    transform: translate(8px, 28px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(20px, -60px) translateZ(0);
+  }
+}
+
+@keyframes circle-8 {
+  33% {
+    transform: translate(32px, -4px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(56px, -20px) translateZ(0);
+  }
+}
+
+@keyframes circle-9 {
+  33% {
+    transform: translate(20px, -12px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(80px, -8px) translateZ(0);
+  }
+}
+
+@keyframes circle-10 {
+  33% {
+    transform: translate(68px, 20px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(100px, 28px) translateZ(0);
+  }
+}
+
+@keyframes circle-11 {
+  33% {
+    transform: translate(4px, 4px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(68px, 20px) translateZ(0);
+  }
+}
+
+@keyframes circle-12 {
+  33% {
+    transform: translate(56px, 0px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(60px, -32px) translateZ(0);
+  }
+}
+
+
+
+nav {
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: center; /* Center the buttons */
+    flex-wrap: wrap; /* Allow buttons to wrap */
+    gap: 20px; /* Space between buttons */
+    max-width: 100%; /* Make sure it fits within the viewport */
+    padding: 10px; /* Add some padding */
+}
+
+
+
+
+    </style>
+
+<style>
+ body {
+    margin: 0;
+    height: 200vh; /* Allow for vertical scrolling */
+    overflow: auto; /* Enable scrolling */
+
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgb(231, 114, 25), rgba(255, 255, 0, 0.6)),
+        radial-gradient(circle at 70% 30%, rgba(0, 255, 150, 0.6), rgba(0, 0, 255, 0.6)),
+        radial-gradient(circle at 50% 50%, rgba(255, 157, 0, 0.872), rgba(0, 255, 255, 0.6)),
+        radial-gradient(circle at 20% 80%, rgba(255, 0, 150, 0.6), rgba(255, 100, 0, 0.6)),
+        radial-gradient(circle at 80% 20%, rgba(0, 100, 255, 0.6), rgba(0, 255, 100, 0.6)),
+        radial-gradient(circle at 40% 60%, rgba(200, 0, 255, 0.6), rgba(255, 255, 255, 0.6));
+
+    background-size: 200px 200px, 200px 200px, 200px 200px, 150px 150px, 150px 150px, 100px 100px;
+    background-repeat: repeat;
+
+    animation: fractalAnimation 5s infinite alternate; /* Keep animation */
+}
+
+@keyframes fractalAnimation {
+    0% {
+        background-size: 200px 200px, 200px 200px, 200px 200px, 150px 150px, 150px 150px, 100px 100px;
+    }
+    100% {
+        background-size: 250px 250px, 250px 250px, 250px 250px, 200px 200px, 200px 200px, 150px 150px;
+    }
+}
+
+/* Add some content to enable scrolling */
+.content {
+    height: 200vh; /* Make content height equal to body height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+}
+
+
+
+</style>
+
+</head>
+<body>
+
+        
+
+
+
+    <header>
+      <h1 style="text-align: right;">
+        <img src="logo.png" alt="WSRN Logo" width="200" style="margin-right: 30px;">
+      </h1>
+      <nav>
+            <a class="uiverse" href="index.html">
+                <div class="wrapper">
+                    <span>Home</span>
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-2"></div>
+                    <div class="circle circle-3"></div>
+                    <div class="circle circle-4"></div>
+                    <div class="circle circle-5"></div>
+                    <div class="circle circle-6"></div>
+                    <div class="circle circle-7"></div>
+                    <div class="circle circle-8"></div>
+                    <div class="circle circle-9"></div>
+                    <div class="circle circle-10"></div>
+                    <div class="circle circle-11"></div>
+                    <div class="circle circle-12"></div>
+                </div>
+            </a>
+            <a class="uiverse" href="about.html">
+                <div class="wrapper">
+                    <span>About</span>
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-2"></div>
+                    <div class="circle circle-3"></div>
+                    <div class="circle circle-4"></div>
+                    <div class="circle circle-5"></div>
+                    <div class="circle circle-6"></div>
+                    <div class="circle circle-7"></div>
+                    <div class="circle circle-8"></div>
+                    <div class="circle circle-9"></div>
+                    <div class="circle circle-10"></div>
+                    <div class="circle circle-11"></div>
+                    <div class="circle circle-12"></div>
+                </div>
+            </a>
+            <a class="uiverse" href="products.html">
+                <div class="wrapper">
+                    <span>Products</span>
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-2"></div>
+                    <div class="circle circle-3"></div>
+                    <div class="circle circle-4"></div>
+                    <div class="circle circle-5"></div>
+                    <div class="circle circle-6"></div>
+                    <div class="circle circle-7"></div>
+                    <div class="circle circle-8"></div>
+                    <div class="circle circle-9"></div>
+                    <div class="circle circle-10"></div>
+                    <div class="circle circle-11"></div>
+                    <div class="circle circle-12"></div>
+                </div>
+            </a>
+            <a class="uiverse" href="findus.html">
+                <div class="wrapper">
+                    <span>Find Us</span>
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-2"></div>
+                    <div class="circle circle-3"></div>
+                    <div class="circle circle-4"></div>
+                    <div class="circle circle-5"></div>
+                    <div class="circle circle-6"></div>
+                    <div class="circle circle-7"></div>
+                    <div class="circle circle-8"></div>
+                    <div class="circle circle-9"></div>
+                    <div class="circle circle-10"></div>
+                    <div class="circle circle-11"></div>
+                    <div class="circle circle-12"></div>
+                </div>
+            </a>
+            <a class="uiverse" href="communityoutreach.html">
+                <div class="wrapper">
+                    <span>Community Outreach</span>
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-2"></div>
+                    <div class="circle circle-3"></div>
+                    <div class="circle circle-4"></div>
+                    <div class="circle circle-5"></div>
+                    <div class="circle circle-6"></div>
+                    <div class="circle circle-7"></div>
+                    <div class="circle circle-8"></div>
+                    <div class="circle circle-9"></div>
+                    <div class="circle circle-10"></div>
+                    <div class="circle circle-11"></div>
+                    <div class="circle circle-12"></div>
+                </div>
+            </a>
+            <a class="uiverse" href="testimonials.html">
+                <div class="wrapper">
+                    <span>Testimonials</span>
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-2"></div>
+                    <div class="circle circle-3"></div>
+                    <div class="circle circle-4"></div>
+                    <div class="circle circle-5"></div>
+                    <div class="circle circle-6"></div>
+                    <div class="circle circle-7"></div>
+                    <div class="circle circle-8"></div>
+                    <div class="circle circle-9"></div>
+                    <div class="circle circle-10"></div>
+                    <div class="circle circle-11"></div>
+                    <div class="circle circle-12"></div>
+                </div>
+            </a>
+            <a class="uiverse" href="filesadditionalresources.html">
+                <div class="wrapper">
+                    <span>Files/Additional Resources</span>
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-2"></div>
+                    <div class="circle circle-3"></div>
+                    <div class="circle circle-4"></div>
+                    <div class="circle circle-5"></div>
+                    <div class="circle circle-6"></div>
+                    <div class="circle circle-7"></div>
+                    <div class="circle circle-8"></div>
+                    <div class="circle circle-9"></div>
+                    <div class="circle circle-10"></div>
+                    <div class="circle circle-11"></div>
+                    <div class="circle circle-12"></div>
+                </div>
+            </a>
+            <a class="uiverse" href="contactus.html">
+                <div class="wrapper">
+                    <span>Contact Us</span>
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-2"></div>
+                    <div class="circle circle-3"></div>
+                    <div class="circle circle-4"></div>
+                    <div class="circle circle-5"></div>
+                    <div class="circle circle-6"></div>
+                    <div class="circle circle-7"></div>
+                    <div class="circle circle-8"></div>
+                    <div class="circle circle-9"></div>
+                    <div class="circle circle-10"></div>
+                    <div class="circle circle-11"></div>
+                    <div class="circle circle-12"></div>
+                </div>
+            </a>
+            <a class="uiverse" href="certificationsandqualifications.html">
+                <div class="wrapper">
+                    <span>Certifications and Qualifications</span>
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-2"></div>
+                    <div class="circle circle-3"></div>
+                    <div class="circle circle-4"></div>
+                    <div class="circle circle-5"></div>
+                    <div class="circle circle-6"></div>
+                    <div class="circle circle-7"></div>
+                    <div class="circle circle-8"></div>
+                    <div class="circle circle-9"></div>
+                    <div class="circle circle-10"></div>
+                    <div class="circle circle-11"></div>
+                    <div class="circle circle-12"></div>
+                </div>
+            </a>
+        </nav>
+    
+    </header>
+    
+    <main style="padding: 20px; background-color: #DAF7A6; border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); max-width: 800px; width: 90%; margin: 20px auto;">
+      <section class="intro" style="margin-bottom: 20px; padding: 20px; border: 2px solid #39ff14; border-radius: 10px; background-color: #E5E4E2;">
+          <h2 style="color: #39ff14; text-align: center;">Welcome to WSRN</h2>
+          <h3 style="color: #39ff14; text-align: center;"><i>Abbrev/We Sell Nuclear Reactors</i></h3>
+          <p>At WSRN, we are dedicated to providing safe, reliable, and competitively priced solutions for clients in the energy sector, specializing in the sale of advanced nuclear reactors. Our commitment to safety is unwavering; we adhere to the highest industry standards and regulatory requirements to ensure our products exceed expectations. With a focus on innovative design and cutting-edge technology, we deliver reactors that maximize energy output while minimizing environmental impact. We also prioritize building long-lasting partnerships, offering ongoing support and expertise to meet our clients' unique needs. Together, we can drive the transition to a cleaner, more sustainable energy future.</p>
+      </section>
+  
+      <section class="features" style="margin-bottom: 20px; padding: 20px; border: 2px solid #39ff14; border-radius: 10px; background-color: #E5E4E2;">
+          <h2 style="color: #39ff14; text-align: center;">Business Goals</h2>
+  
+<ul>
+    <li>Deliver Safe and Advanced Nuclear Reactors: Develop next-generation nuclear reactors that prioritize safety and quality, ensuring reliable energy production.</li>
+    <li>Combat Climate Change: Provide cutting-edge nuclear technology to contribute significantly to reducing carbon emissions and fostering a sustainable future.</li>
+    <li>Empower Communities with Affordable Energy: Make clean and affordable electricity accessible to communities, promoting economic growth and energy independence.</li>
+</ul>
+
+            </section>
+        
+            <section class="testimonials" style="margin-bottom: 20px; padding: 20px; border: 2px solid #39ff14; border-radius: 10px; background-color: #E5E4E2;">
+              <h2 style="color: #39ff14; text-align: center;">Testimonials</h2>
+              <blockquote style="border-left: 4px solid #39ff14; margin: 10px 0; padding-left: 10px; font-style: italic; color: #555; text-align: center;">
+                  <p>"As a leader in the energy sector, we have been thoroughly impressed with the innovative solutions provided by WSRN. Their next-generation nuclear reactors have not only met our expectations for safety and efficiency but have also positioned us at the forefront of sustainable energy. The team's commitment to combating climate change aligns perfectly with our corporate values, and their dedication to providing affordable energy to communities is commendable. We look forward to a continued partnership that drives meaningful change in the industry."</p>
+                  <footer>- A Satisfied Energy Partner</footer>
+              </blockquote>
+              <blockquote style="border-left: 4px solid #39ff14; margin: 10px 0; padding-left: 10px; font-style: italic; color: #555; text-align: center;">
+                  <p>"Our experience with WSRN has been nothing short of transformative. Their state-of-the-art nuclear reactors have significantly enhanced our energy production capabilities while maintaining the highest safety standards. We appreciate their proactive approach to addressing climate change and their commitment to making clean energy accessible to all communities. Working with their dedicated team has been a game changer for our operations, and we are excited about the future we are building together."</p>
+                  <footer>- Industry Leader in Renewable Energy</footer>
+              </blockquote>
+              
+              <div style="text-align: center;">
+                <a href="testimonials.html" class="testimonial-link">read more testimonials here...</a>
+            </div>
+
+          </section>
+
+          <style>
+            .testimonial-link {
+                font-size: 18px;
+                color: #007BFF; /* Change to your preferred color */
+                text-decoration: none;
+                padding: 10px;
+                transition: all 0.3s ease;
+            }
+    
+            .testimonial-link:hover {
+                font-size: 20px;
+                color: #0056b3; /* Darker shade on hover */
+            }
+        </style>
+
+        
+          
+          <section class="contact" style="margin-bottom: 20px; padding: 20px; border: 2px solid #39ff14; border-radius: 10px; background-color: #fff;">
+            <h2 style="color: #39ff14; text-align: center;">Contact Us</h2>
+            <p>We’re here to help! If you have any questions, need a quote, or just want to chat about our solutions, don’t hesitate to reach out. We’d love to hear from you! Contact us anytime at <a href="mailto:example@email.com">example@email.com</a>.</p>
+            <div style="text-align: center;">
+                <button onclick="location.href='contactus.html'" style="display: inline-flex; align-items: center; justify-content: center; outline: none; cursor: pointer; width: 150px; height: 50px; background-image: linear-gradient(to top, #D8D9DB 0%, #fff 80%, #FDFDFD 100%); border-radius: 30px; border: 1px solid #8F9092; transition: all 0.2s ease; font-family: 'Source Sans Pro', sans-serif; font-size: 14px; font-weight: 600; color: #606060; text-shadow: 0 1px #fff;">Email Us</button>
+            </div>
+        </section>
+        
+        <style>
+        button:hover {
+          box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 3px 3px #CECFD1;
+        }
+        
+        button:active {
+          box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+        }
+        
+        button:focus {
+          box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+        }
+        </style>
+        
+        
+          
+        </main>
+        
+</body>
+</body>
+</html>

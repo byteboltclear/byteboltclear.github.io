@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WSNR</title>
+
+    <style>
+                body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+    position: relative; /* Needed for positioning the pseudo-element */
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+    overflow: hidden; /* Ensure the pseudo-element doesn't overflow */
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('headerbackground.png'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    z-index: 0; /* Send to back */
+}
+
+h1, nav {
+    position: relative; /* Ensure text stays above the background */
+    z-index: 1; /* Bring text above the pseudo-element */
+}
+
+        .boton-elegante {
+            padding: 15px 20px;
+            border: 2px solid #ADD8E6;
+            background-color: #1F3B4D;
+            color: #528aae;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.4s ease;
+            outline: none;
+            position: relative;
+            overflow: hidden;
+            font-weight: bold;
+            text-decoration: none; /* Ensure links look like buttons */
+        }
+
+        .boton-elegante::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                circle,
+                rgba(255, 255, 255, 0.25) 0%,
+                rgba(255, 255, 255, 0) 70%
+            );
+            transform: scale(0);
+            transition: transform 0.5s ease;
+        }
+
+        .boton-elegante:hover::after {
+            transform: scale(4);
+        }
+
+        .boton-elegante:hover {
+            border-color: #ADD8E6;
+            background: #1F3B4D;
+        }
+    </style>
+
+<style>
+    body {
+        background-image: url('background.png');
+        background-size: cover; /* Adjust to fit your needs */
+        background-repeat: no-repeat;
+        margin: 0;
+        height: 320vh; /* Full height */
+    }
+</style>
+
+</head>
+<body>
+
+        
+
+
+
+        <header>
+            <h1>WSRN</h1>
+            <nav>
+                <a class="boton-elegante" href="index.html">Home</a>
+                <a class="boton-elegante" href="account.html">About</a>
+                <a class="boton-elegante" href="order.html">Order</a>
+                <a class="boton-elegante" href="findus.html">Find Us</a>
+                <a class="boton-elegante" href="communityoutreach.html">Community Outreach</a>
+                <a class="boton-elegante" href="testimonials.html">Testimonials</a>
+                <a class="boton-elegante" href="filesadditionalresources.html">Files/Additional Resources</a>
+                <a class="boton-elegante" href="contactus.html">Contact Us</a>
+            </nav>
+        </header>
+
+        <main style="padding: 20px; background-color: rgba(255, 255, 255, 0.9); border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); max-width: 800px; width: 90%; margin: 20px auto;">
+            <section class="intro" style="margin-bottom: 20px; padding: 20px; border: 2px solid #ADD8E6; border-radius: 10px; background-color: #fff;">
+                <h2 style="color: #1F3B4D; text-align: center;">Welcome to WSRN</h2>
+                <h3 style="color: #496c82; text-align: center;"><i>Abbrev/We Sell Nuclear Reactors</i></h3>
+                <p>At WSRN, we are dedicated to providing safe, reliable, and competitively priced solutions for clients in the energy sector, specializing in the sale of advanced nuclear reactors. Our commitment to safety is unwavering; we adhere to the highest industry standards and regulatory requirements to ensure our products exceed expectations. With a focus on innovative design and cutting-edge technology, we deliver reactors that maximize energy output while minimizing environmental impact. We also prioritize building long-lasting partnerships, offering ongoing support and expertise to meet our clients' unique needs. Together, we can drive the transition to a cleaner, more sustainable energy future.</p>
+            </section>
+        
+            <section class="features" style="margin-bottom: 20px; padding: 20px; border: 2px solid #ADD8E6; border-radius: 10px; background-color: #fff;">
+                <h2 style="color: #1F3B4D; text-align: center;">Business Goals</h2>
+<ul>
+    <li>Deliver Safe and Advanced Nuclear Reactors: Develop next-generation nuclear reactors that prioritize safety and quality, ensuring reliable energy production.</li>
+    <li>Combat Climate Change: Provide cutting-edge nuclear technology to contribute significantly to reducing carbon emissions and fostering a sustainable future.</li>
+    <li>Empower Communities with Affordable Energy: Make clean and affordable electricity accessible to communities, promoting economic growth and energy independence.</li>
+</ul>
+
+            </section>
+        
+            <section class="testimonials" style="margin-bottom: 20px; padding: 20px; border: 2px solid #ADD8E6; border-radius: 10px; background-color: #fff;">
+                <h2 style="color: #1F3B4D; text-align: center;">Testimonials</h2>
+                <blockquote style="border-left: 4px solid #ADD8E6; margin: 10px 0; padding-left: 10px; font-style: italic; color: #555; text-align: center;">
+                    <p>"As a leader in the energy sector, we have been thoroughly impressed with the innovative solutions provided by WSRN. Their next-generation nuclear reactors have not only met our expectations for safety and efficiency but have also positioned us at the forefront of sustainable energy. The team's commitment to combating climate change aligns perfectly with our corporate values, and their dedication to providing affordable energy to communities is commendable. We look forward to a continued partnership that drives meaningful change in the industry."</p>
+                    <footer>- A Satisfied Energy Partner</footer>
+                </blockquote>
+                <blockquote style="border-left: 4px solid #ADD8E6; margin: 10px 0; padding-left: 10px; font-style: italic; color: #555; text-align: center;">
+                    <p>"Our experience with WSRN has been nothing short of transformative. Their state-of-the-art nuclear reactors have significantly enhanced our energy production capabilities while maintaining the highest safety standards. We appreciate their proactive approach to addressing climate change and their commitment to making clean energy accessible to all communities. Working with their dedicated team has been a game changer for our operations, and we are excited about the future we are building together."</p>
+                    <footer>- Industry Leader in Renewable Energy</footer>
+                </blockquote>
+            </section>
+        
+            <section class="contact" style="margin-bottom: 20px; padding: 20px; border: 2px solid #ADD8E6; border-radius: 10px; background-color: #fff;">
+                <h2 style="color: #1F3B4D; text-align: center;">Contact Us</h2>
+                <p>We’re here to help! If you have any questions, need a quote, or just want to chat about our solutions, don’t hesitate to reach out. We’d love to hear from you! Contact us anytime at <a href="mailto:example@email.com">example@email.com</a>.</p>
+
+            </section>
+        </main>
+        
+</body>
+</body>
+</html>
