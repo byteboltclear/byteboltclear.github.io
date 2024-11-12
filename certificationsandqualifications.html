@@ -4,116 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WSRN</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #E5E4E2;
-            margin: 0;
-            padding: 20px;
-            height: 200vh; /* Allow for vertical scrolling */
-            overflow: auto; /* Enable scrolling */
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgb(231, 114, 25), rgba(255, 255, 0, 0.6)),
-                radial-gradient(circle at 70% 30%, rgba(0, 255, 150, 0.6), rgba(0, 0, 255, 0.6)),
-                radial-gradient(circle at 50% 50%, rgba(255, 157, 0, 0.872), rgba(0, 255, 255, 0.6)),
-                radial-gradient(circle at 20% 80%, rgba(255, 0, 150, 0.6), rgba(255, 100, 0, 0.6)),
-                radial-gradient(circle at 80% 20%, rgba(0, 100, 255, 0.6), rgba(0, 255, 100, 0.6)),
-                radial-gradient(circle at 40% 60%, rgba(200, 0, 255, 0.6), rgba(255, 255, 255, 0.6));
-            background-size: 200px 200px, 200px 200px, 200px 200px, 150px 150px, 150px 150px, 100px 100px;
-            background-repeat: repeat;
-            animation: fractalAnimation 5s infinite alternate; /* Keep animation */
-        }
-
-        @keyframes fractalAnimation {
-            0% {
-                background-size: 200px 200px, 200px 200px, 200px 200px, 150px 150px, 150px 150px, 100px 100px;
-            }
-            100% {
-                background-size: 250px 250px, 250px 250px, 250px 250px, 200px 200px, 200px 200px, 150px 150px;
-            }
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .backbutton {
-            padding: 15px 30px;
-            font-size: 18px;
-            outline: none;
-            border: none;
-            border-radius: 10px;
-            transition: 0.5s;
-            background: #1e1e1e;
-            cursor: pointer;
-            color: greenyellow;
-            box-shadow: 0 0 10px #363636, inset 0 0 10px #363636;
-            text-decoration: none; /* Remove underline from link */
-            display: inline-block; /* Make link behave like a button */
-        }
-
-        .backbutton:hover {
-            animation: a 1s 1 linear;
-        }
-
-        @keyframes a {
-            0% {
-                transform: scale(0.7, 1.3);
-            }
-            25% {
-                transform: scale(1.3, 0.7);
-            }
-            50% {
-                transform: scale(0.7, 1.3);
-            }
-            75% {
-                transform: scale(1.3, 0.7);
-            }
-            100% {
-                transform: scale(1, 1);
-            }
-        }
-
-        .certifications {
-            margin-bottom: 20px;
-            padding: 20px;
-            border: 2px solid #39ff14;
-            border-radius: 10px;
-            background-color: #fff;
-        }
-
-        .certifications h2 {
-            color: #39ff14;
-            text-align: center;
-        }
-
-        .certifications ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        blockquote {
-            border-left: 4px solid greenyellow;
-            margin: 10px 0;
-            padding-left: 10px;
-            font-style: italic;
-            color: #555;
-            text-align: center;
-        }
-
-        button:hover {
-            box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 3px 3px #CECFD1;
-        }
-
-        button:active {
-            box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
-        }
-
-        button:focus {
-            box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
-        }
-    </style>
+     <!-- Link to the external CSS file -->
+     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -128,21 +20,41 @@
     <section class="certifications">
         <h2>Certifications</h2>
         <ul>
-            <li>Nuclear Regulatory Commission (NRC) License - Required in the U.S. to operate nuclear facilities.</li>
-            <li>ISO 9001 - Quality management systems certification.</li>
-            <li>ISO 14001 - Environmental management systems certification.</li>
-            <li>ISO 45001 - Occupational health and safety management systems certification.</li>
-            <li>ASME Nuclear Quality Assurance (NQA-1) - Standard for quality assurance in nuclear facilities.</li>
-            <li>ISO/IEC 17025 - General requirements for the competence of testing and calibration laboratories.</li>
-            <li>Nuclear Energy Agency (NEA) Membership - Participation in international nuclear safety and security discussions.</li>
-            <li>American National Standards Institute (ANSI) Certification - Compliance with various standards for safety and performance.</li>
-            <li>Quality Assurance Program (QAP) - Specific to nuclear reactor components and systems.</li>
-            <li>Nuclear Security Regulations Compliance - Adherence to physical and cybersecurity standards.</li>
-            <li>Radiation Safety Certification - Compliance with safety standards for radiation exposure.</li>
-            <li>Engineering and Manufacturing Certifications - Such as ISO/TS 16949 for automotive applications, applicable to specific components.</li>
-            <li>Fukushima Response Certification - Demonstrating compliance with enhanced safety measures post-Fukushima.</li>
-            <li>IAEA Safeguards Certification - Compliance with International Atomic Energy Agency safeguards.</li>
+            <li><strong>Nuclear Regulatory Commission (NRC) License</strong> - Required in the U.S. to operate nuclear facilities.</li>
+            <li><strong>ISO 9001</strong> - Quality management systems certification.</li>
+            <li><strong>ISO 14001</strong> - Environmental management systems certification.</li>
+            <li><strong>ISO 45001</strong> - Occupational health and safety management systems certification.</li>
+            <li><strong>ASME Nuclear Quality Assurance (NQA-1)</strong> - Standard for quality assurance in nuclear facilities.</li>
+            <li><strong>ISO/IEC 17025</strong> - General requirements for the competence of testing and calibration laboratories.</li>
+            <li><strong>Nuclear Energy Agency (NEA) Membership</strong> - Participation in international nuclear safety and security discussions.</li>
+            <li><strong>American National Standards Institute (ANSI) Certification</strong> - Compliance with various standards for safety and performance.</li>
+            <li><strong>Quality Assurance Program (QAP)</strong> - Specific to nuclear reactor components and systems.</li>
+            <li><strong>Nuclear Security Regulations Compliance</strong> - Adherence to physical and cybersecurity standards.</li>
+            <li><strong>Radiation Safety Certification</strong> - Compliance with safety standards for radiation exposure.</li>
+            <li><strong>Engineering and Manufacturing Certifications</strong> - Such as ISO/TS 16949 for automotive applications, applicable to specific components.</li>
+            <li><strong>Fukushima Response Certification</strong> - Demonstrating compliance with enhanced safety measures post-Fukushima.</li>
+            <li><strong>IAEA Safeguards Certification</strong> - Compliance with International Atomic Energy Agency safeguards.</li>
         </ul>
     </section>
+    
+    <section class="qualifications">
+        <h2>Qualifications</h2>
+        <ul>
+            <li><strong>Advanced Degree</strong> in Nuclear Engineering, Mechanical Engineering, or a related field.</li>
+            <li><strong>Extensive Experience</strong> in nuclear facility operations and regulatory compliance.</li>
+            <li><strong>Proven Track Record</strong> of managing and leading quality assurance teams in the nuclear sector.</li>
+            <li><strong>Experience in Implementing ISO & ASME Standards</strong> in highly regulated environments.</li>
+            <li><strong>In-depth Knowledge</strong> of radiation safety protocols, nuclear security regulations, and environmental safety compliance.</li>
+            <li><strong>Proficient in Risk Management</strong> strategies specific to nuclear power plants and reactor systems.</li>
+            <li><strong>Experience in Conducting Audits</strong> and assessments in compliance with international nuclear safety standards.</li>
+            <li><strong>Collaborative Skills</strong> to work effectively with cross-functional teams and external regulatory agencies.</li>
+            <li><strong>Process Improvement Expertise</strong> within regulated industries.</li>
+            <li><strong>Leadership in Safety & Environmental Compliance</strong> in high-risk industries.</li>
+            <li><strong>Technical Proficiency</strong> in software applications for nuclear engineering, risk analysis tools, and safety management.</li>
+            <li><strong>Exceptional Communication Skills</strong> for interacting with regulatory bodies, stakeholders, and team members at all levels.</li>
+        </ul>
+    </section>
+    
+    
 </body>
 </html>
