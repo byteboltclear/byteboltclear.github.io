@@ -164,6 +164,9 @@ footer {
     color: #000000;
     text-align: center;
     padding: 10px 0;
+    align-items: center; /* Align items vertically */
+    justify-content: space-between; /* Space between the logo and nav */
+
 }
 
 
@@ -308,4 +311,49 @@ section p {
 .hero ul, .hero ol {
     list-style-type: none;
     padding-left: 0;
+}
+
+
+
+
+/* mp3 player */
+.mp3-player {
+    width: 300px;
+    background-color: rgba(204, 204, 204, 0.8); /* Lighter gray with 80% opacity */
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.player-controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #555;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #777;
+}
+
+.song-info {
+    text-align: center;
+}
+
+#current-song {
+    font-size: 16px;
 }
