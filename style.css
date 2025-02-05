@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Courier New', monospace;
+    font-family: 'League Spartan', sans-serif; /* Updated font-family */
 }
 
 body {
@@ -16,7 +16,7 @@ body {
 
 
 header {
-    background-color: rgba(204, 204, 204, 0.8); /* Lighter gray with 80% opacity */
+    background-color: rgba(0, 191, 255, 0.3); /* Lighter gray with 80% opacity */
     color: #000000;
     padding: 10px 0;
     display: flex;
@@ -82,17 +82,32 @@ nav ul li a {
     background-color: inherit;
     border-radius: 100px;
     font-weight: 600;
-    color: #000000; /* Changed to light grey */
-    box-shadow: 0 0 0 2px lightgrey; /* Changed to light grey */
+    color: #000000; /* Text color for the button */
+    box-shadow: 0 0 0 2px lightgrey; /* Light grey shadow */
     cursor: pointer;
     overflow: hidden;
     transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    background: linear-gradient(45deg, #FF1493, #32CD32, #4B0082, #FF4500); /* Gradient background */
+    background-size: 400% 400%;
+    animation: gradientAnimation 6s ease infinite; /* Animate the gradient */
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .animated-button svg {
     position: absolute;
     width: 24px;
-    fill: lightgrey; /* Changed to light grey */
+    fill: lightgrey; /* Light grey for SVG icon */
     z-index: 9;
     transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -112,7 +127,7 @@ nav ul li a {
     transform: translate(-50%, -50%);
     width: 20px;
     height: 20px;
-    background-color: lightgrey; /* Changed to light grey */
+    background-color: lightgrey; /* Light grey circle */
     border-radius: 50%;
     opacity: 0;
     transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
@@ -149,7 +164,7 @@ nav ul li a {
 
 .animated-button:active {
     scale: 0.95;
-    box-shadow: 0 0 0 4px lightgrey; /* Changed to light grey */
+    box-shadow: 0 0 0 4px lightgrey; /* Light grey active shadow */
 }
 
 .animated-button:hover .circle {
@@ -160,8 +175,10 @@ nav ul li a {
 
 
 
+
+
 footer {
-    background-color: rgba(204, 204, 204, 0.8); /* Lighter gray with 80% opacity */
+    background-color: rgba(0, 191, 255, 0.3); /* Lighter gray with 80% opacity */
     color: #000000;
     text-align: center;
     padding: 10px 0;
@@ -209,8 +226,8 @@ section p {
       inset 0 0.3rem 0.9rem rgba(255, 255, 255, 0.3),
       inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.5), /* Lighter shadow */
       inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.5),
-      0 3rem 3rem rgba(0, 0, 0, 0.2), /* Lighter shadow */
-      0 1rem 1rem -0.6rem rgba(0, 0, 0, 0.6); /* Lighter shadow */
+      0 3rem 3rem rgba(255, 20, 147, 0.2), /* Apply #FF1493 shadow */
+      0 1rem 1rem -0.6rem rgba(255, 69, 0, 0.6); /* Apply #FF4500 shadow */
 }
 
 .button .wrap {
@@ -221,6 +238,7 @@ section p {
     border-radius: inherit;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(45deg, #FF1493, #32CD32, #4B0082, #FF4500); /* Gradient background */
 }
 
 .button .wrap p span:nth-child(2) {
@@ -281,8 +299,8 @@ section p {
       inset 0 0.3rem 0.5rem rgba(255, 255, 255, 0.4),
       inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.5), /* Lighter shadow */
       inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.7),
-      0 3rem 3rem rgba(0, 0, 0, 0.2), /* Lighter shadow */
-      0 1rem 1rem -0.6rem rgba(0, 0, 0, 0.6); /* Lighter shadow */
+      0 3rem 3rem rgba(255, 20, 147, 0.2), /* Apply #FF1493 shadow */
+      0 1rem 1rem -0.6rem rgba(255, 69, 0, 0.6); /* Apply #FF4500 shadow */
 }
 
 .button:hover .wrap::before {
@@ -304,9 +322,10 @@ section p {
       inset 0 0.3rem 0.5rem rgba(255, 255, 255, 0.5),
       inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.6), /* Lighter shadow */
       inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.4),
-      0 3rem 3rem rgba(0, 0, 0, 0.2), /* Lighter shadow */
-      0 1rem 1rem -0.6rem rgba(0, 0, 0, 0.6); /* Lighter shadow */
+      0 3rem 3rem rgba(255, 20, 147, 0.2), /* Apply #FF1493 shadow */
+      0 1rem 1rem -0.6rem rgba(255, 69, 0, 0.6); /* Apply #FF4500 shadow */
 }
+
 
 /*styling for lists */
 .hero ul, .hero ol {
@@ -317,6 +336,7 @@ section p {
 
 
 
+/* mp3 player */
 .mp3-player {
     width: 300px;
     background-color: rgba(204, 204, 204, 0.8); /* Lighter gray with 80% opacity */
@@ -327,7 +347,21 @@ section p {
     flex-direction: column;
     align-items: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    border: 2px solid red; /* Add a border to check if it's rendered */
+    background: linear-gradient(135deg, #FF1493, #32CD32, #4B0082, #FF4500); /* Gradient background */
+    background-size: 400% 400%;
+    animation: gradientAnimation 6s ease infinite; /* Animate the gradient */
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .player-controls {
@@ -345,16 +379,57 @@ button {
     cursor: pointer;
     color: white;
     font-size: 16px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 button:hover {
     background-color: #777;
+    transform: scale(1.1);
+}
+
+/* Adding individual button color effects */
+button.play-btn {
+    background-color: #FF1493; /* Hot pink play button */
+}
+
+button.play-btn:hover {
+    background-color: #FF69B4; /* Lighter pink hover */
+}
+
+button.pause-btn {
+    background-color: #32CD32; /* Lime green pause button */
+}
+
+button.pause-btn:hover {
+    background-color: #00FF00; /* Lighter green hover */
+}
+
+button.stop-btn {
+    background-color: #4B0082; /* Indigo stop button */
+}
+
+button.stop-btn:hover {
+    background-color: #6A0DAD; /* Lighter indigo hover */
+}
+
+button.skip-btn {
+    background-color: #FF4500; /* Orange skip button */
+}
+
+button.skip-btn:hover {
+    background-color: #FF6347; /* Lighter orange hover */
 }
 
 .song-info {
     text-align: center;
+    margin-top: 10px;
 }
 
 #current-song {
     font-size: 16px;
+    font-weight: 500;
+    color: #FFF;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text */
+    padding: 5px 10px;
+    border-radius: 5px;
 }
