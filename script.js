@@ -1,3 +1,16 @@
+function applyMobileStyles() {
+    if (window.innerWidth <= 768) {
+        document.body.classList.add("mobile");
+    } else {
+        document.body.classList.remove("mobile");
+    }
+}
+
+// Run on page load and resize
+window.onload = applyMobileStyles;
+window.onresize = applyMobileStyles;
+
+
 // Example functionality for tickets button (you can replace with real functionality)
 document.querySelectorAll('button').forEach(button => {
     button.addEventListener('click', () => {
@@ -74,3 +87,5 @@ audioPlayer.addEventListener('play', () => {
 audioPlayer.addEventListener('pause', () => {
     playBtn.textContent = "Play";
 });
+
+
