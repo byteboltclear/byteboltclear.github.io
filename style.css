@@ -83,7 +83,7 @@ nav ul li a {
     background-color: inherit;
     border-radius: 100px;
     font-weight: 600;
-    color: #000000; /* Text color for the button */
+    color: #0, 191, 255; /* Text color for the button */
     box-shadow: 0 0 0 2px lightgrey; /* Light grey shadow */
     cursor: pointer;
     overflow: hidden;
